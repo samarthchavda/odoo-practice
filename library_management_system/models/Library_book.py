@@ -5,8 +5,8 @@ class Library_Book(models.Model):
     _name = 'library.book'
     _description = 'Library Book'
 
+    author_id = fields.Many2one('book.author', string="Author")
     name = fields.Char(string='Name')
-    author = fields.Char(string='Author')
     available_qty = fields.Integer(string='Available Qty')
     is_available = fields.Boolean(compute='_compute_is_available',store=True)
 
