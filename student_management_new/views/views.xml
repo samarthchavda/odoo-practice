@@ -1,0 +1,133 @@
+<odoo>
+	
+    <record id="stud_master_form_new" model="ir.ui.view">
+        <field name="name">Stud master Form</field>
+        <field name="model">stud.master.new</field>
+        <field name="arch" type="xml">
+			<form string="Stud Master">
+				<group>
+					<field name="name" />
+					<field name="phone_no"/>
+					<field name="birth_date"/>
+				</group>
+				<group>
+					<field name="active_student"/>
+					<field name="nationality"/>
+					
+				</group>
+				<notebook>
+					<page name="results" tring="Results">
+						<group>
+							<field name="result_ids" nolabel="1">
+								<list string="results" editable="top">
+									<field name="sub_1"/>
+									<field name="sub_2"/>
+									<field name="sub_3"/>
+									<field name="total_marks"/>
+									<field name="percentage"/>
+								</list>
+							</field>
+						</group>
+					</page>
+					<page name="sports" string="Sports">
+						<group>
+							<field name="sp_act_ids">
+								<list string="Sports">
+									<field name="name"/>
+								</list>
+							</field>
+						</group>
+					</page>
+				</notebook>
+			</form>
+		</field>
+	</record>
+	
+    <record id="stud_master_form_list" model="ir.ui.view">
+        <field name="name">Stud master list</field>
+        <field name="model">stud.master.new</field>
+        <field name="arch" type="xml">
+			<list string="Stud Master">
+				<field name="name"/>
+				<field name="phone_no"/>
+				<field name="birth_date"/>
+				<field name="active_student"/>
+				<field name="nationality"/>
+			</list>
+		</field>
+	</record>
+	
+	<!-- Result list and form -->
+    <record id="stud_result_form_new" model="ir.ui.view">
+        <field name="name">Stud result Form</field>
+        <field name="model">stud.result.new</field>
+        <field name="arch" type="xml">
+			<form string="Stud Master">
+<!--				<header>-->
+<!--					<button name="calculate_result" type="object" string="Calculate Result" class="btn-primary"/>-->
+<!--				</header>-->
+				<sheet>
+					<group>
+						<field name="student_id"/>
+						<field name="sub_1" />
+						<field name="sub_2"/>
+						<field name="sub_3"/>
+						<field name="total_marks"/>
+						<field name="percentage"/>
+					</group>						
+				</sheet>
+			</form>
+		</field>
+	</record>
+	
+    <record id="stud_result_form_list" model="ir.ui.view">
+        <field name="name">Stud result list</field>
+        <field name="model">stud.result.new</field>
+        <field name="arch" type="xml">
+			<list string="Stud Master">
+				<field name="student_id"/>
+				<field name="sub_1"/>
+				<field name="sub_2"/>
+				<field name="sub_3"/>
+			</list>
+		</field>
+	</record>
+	
+	<!-- Sports ACT list and form -->
+    <record id="stud_act_list_new" model="ir.ui.view">
+	    <field name="name">Stud act list</field>
+	    <field name="model">sports.act</field>
+	    <field name="arch" type="xml">
+			<list string="Sports" editable="top">
+				<field name="name" required="1"/>
+				<field name="stud_ids" widget="many2many_tags"/>
+			</list>
+		</field>
+	</record>
+		
+    <record id="action_stud_master_new" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">stud.master.new</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    
+    <record id="action_stud_result_new" model="ir.actions.act_window">
+        <field name="name">Results</field>
+        <field name="res_model">stud.result.new</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    
+    <record id="action_stud_act_new" model="ir.actions.act_window">
+        <field name="name">Sports</field>
+        <field name="res_model">sports.act</field>
+        <field name="view_mode">list</field>
+    </record>
+    
+    
+	
+	<menuitem id="menu_stud_management_new" name="Students Management"/>
+	<menuitem id="menu_stud_management_students" name="Students" action="action_stud_master_new" parent="menu_stud_management_new" />
+	<menuitem id="menu_stud_management_results" name="Results" action="action_stud_result_new" parent="menu_stud_management_new" />
+	<menuitem id="menu_stud_management_sports" name="Sports" action="action_stud_act_new" parent="menu_stud_management_new" />	
+	
+</odoo>
