@@ -1,0 +1,57 @@
+<odoo>
+    <record id="library_book_List_view" model="ir.ui.view">
+        <field name="name">Library book list</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="author"/>
+                <field name="available_qty"/>
+                <field name="is_available"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="library_book_form_view" model="ir.ui.view">
+        <field name="name">Library book form</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <form string="library books">
+<!--                smart button-->
+<!--                <div class="or_button_box" name="button_box">-->
+<!--                    <button name="action_view_issue"-->
+<!--                            type="object"-->
+<!--                            class="oe-stat-button"-->
+<!--                            icon="fa-book">-->
+<!--                        <field name="issue_count"-->
+<!--                               string="Issues"-->
+<!--                               widget="statinfo"/>-->
+<!--                    </button>-->
+
+<!--                </div>-->
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="author"/>
+                        <field name="available_qty"/>
+                        <field name="is_available"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_book" model="ir.actions.act_window">
+        <field name="name">Library Books </field>
+        <field name="res_model">library.book</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem name="library" id="menu_library_root"/>
+    <menuitem id="menu_library"
+              name="Books"
+              action="action_book"
+              parent="menu_library_root"/>
+
+
+</odoo>
