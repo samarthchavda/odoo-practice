@@ -22,10 +22,15 @@ class StudResult(models.Model):
     sub_2 = fields.Float("Sub 2")
     sub_3 = fields.Float("Sub 3")
     student_id = fields.Many2one('stud.master.new',string='Student')
-    total_marks = fields.Float("Total Marks",compute='get_result',store=True)
-    percentage = fields.Float("Percent",compute='get_result',store=True)
+    total_marks = fields.Float("Total Marks",compute='get_result',search='_search_total')
+    percentage = fields.Float("Percent",compute='get_result',search='_search_total')
 
-    @api.depends('sub_1', 'sub_2', 'sub_3')
+    def _search_total(self,operator,value):
+        rec = self.search([]).filtered(
+            lambda r : r.total_marks > value
+        )
+        return [('id','in',rec.ids)]
+
     def get_result(self):
         for rec in self:
             rec.total_marks = rec.sub_1 + rec.sub_2 + rec.sub_3

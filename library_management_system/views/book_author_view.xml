@@ -14,6 +14,16 @@
         <field name="model">book.author</field>
         <field name="arch" type="xml">
             <form>
+<!--                <div class="oe_button_box" name="button_box">-->
+<!--                    <button name="action_view_book"-->
+<!--                            type="object"-->
+<!--                            class="oe-stat-button"-->
+<!--                            icon="fa-book">-->
+<!--                        <field name="book_count"-->
+<!--                               string="Book"-->
+<!--                               widget="statinfo"/>-->
+<!--                    </button>-->
+<!--                </div>-->
                 <sheet>
                     <group>
                         <field name="name"/>

@@ -22,21 +22,21 @@
         <field name="model">book.issue</field>
         <field name="arch" type="xml">
             <form>
-<!--                <header>-->
-<!--                    <button name="action_issue_book"-->
-<!--                            string="Issue"-->
-<!--                            type="object"-->
-<!--                            class="btn-primary"-->
-<!--                            invisible="status != 'draft'"-->
-<!--                    />-->
+                <header>
+                    <button name="action_issue_book"
+                            string="Issue"
+                            type="object"
+                            class="btn-primary"
+                            invisible="status != 'draft'"
+                    />
 
-<!--                    <button name="action_return_book"-->
-<!--                            string="Return"-->
-<!--                            type="object"-->
-<!--                            class="btn-primary/"-->
-<!--                            invisible="status != 'issue'"-->
-<!--                    />-->
-<!--                </header>-->
+                    <button name="action_return_book"
+                            string="Return"
+                            type="object"
+                            class="btn-primary/"
+                            invisible="status != 'issue'"
+                    />
+                </header>
 
                 <sheet>
                     <group>

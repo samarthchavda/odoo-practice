@@ -16,7 +16,7 @@ class Book_issue(models.Model):
     )
     issue_date = fields.Date(string='Date of Issue',default=fields.Date.today(),required=True)
     return_date = fields.Date(string='Date of Return')
-    day_issue = fields.Integer(string='issue Days', compute='_compute_day_issue')
+    day_issue = fields.Integer(string='issue Days', compute='_compute_day_issue',store=True)
     status = fields.Selection([
         ('draft', 'Draft'),
         ('issue', 'Issue'),
@@ -56,13 +56,15 @@ class Book_issue(models.Model):
     #         if book.status == 'return':
     #             book.book_id.available_qty += 1
 
-    # def action_issue_book(self):
-    #     if self.status == 'issue':
-    #         self.book_id.available_qty -= 1
-    #
-    # def action_return_book(self):
-    #     if self.status == 'return':
-    #         self.book_id.available_qty += 1
+    def action_issue_book(self):
+        if self.status == 'issue':
+            self.book_id.available_qty -= 1
+
+    def action_return_book(self):
+        if not self.status == 'return':
+            self.book_id.available_qty += 1
+            self.return_date = fields.Date.today()
+        self.status = 'return'
 
     # penalty logic
     # fine = late_days * 10
