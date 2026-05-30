@@ -10,9 +10,9 @@
                 <field name="return_date"/>
                 <field name="status"/>
                 <field name="day_issue"/>
-<!--                <field name="due_date"/>-->
-<!--                <field name="late_days"/>-->
-<!--                <field name="fine"/>-->
+                <field name="due_date"/>
+                <field name="late_days"/>
+                <field name="fine"/>
             </list>
         </field>
     </record>
@@ -36,6 +36,16 @@
                             class="btn-primary/"
                             invisible="status != 'issue'"
                     />
+                    <button name="action_show_availble_book"
+                            string="Available Book"
+                            type="object"
+                            class="btn-primary"
+                            />
+                     <button name="test_browse"
+                            string="test browse Book"
+                            type="object"
+                            class="btn-primary"
+                            />
                 </header>
 
                 <sheet>
@@ -46,9 +56,9 @@
                         <field name="return_date"/>
                         <field name="status" readonly="1"/>
                         <field name="day_issue"/>
-<!--                        <field name="due_date"/>-->
-<!--                        <field name="late_days"/>-->
-<!--                        <field name="fine"/>-->
+                        <field name="due_date"/>
+                        <field name="late_days"/>
+                        <field name="fine"/>
                     </group>
                 </sheet>
             </form>

@@ -1,9 +1,12 @@
+from datetime import timedelta
+
 from odoo import fields, models, api
 from odoo.exceptions import ValidationError
 
 class Book_issue(models.Model):
     _name = 'book.issue'
     _description = 'Book Issue'
+    _order = 'book_id'
 
     book_id = fields.Many2one(
         'library.book',
@@ -76,23 +79,46 @@ class Book_issue(models.Model):
     # tuples ()
     # dict = {key:value}
 
-    # fine = fields.Integer(string='Fine',compute='_compute_fine_amount',store=True)
-    # @api.depends('late_days')
-    # def _compute_fine_amount(self):
-    #     for rec in self:
-    #         rec.fine = rec.late_days * 10
-    #
-    # due_date = fields.Date(string='Due Date',compute='_compute_due_date',store=True)
-    # @api.depends('issue_date')
-    # def _compute_due_date(self):
-    #     for rec in self:
-    #         rec.due_date = rec.issue_date + timedelta(days=7)
-    #
-    # late_days = fields.Integer(string='Late Days', compute='_compute_late_days',store=True)
-    # @api.depends('due_date','return_date')
-    # def _compute_late_days(self):
-    #     for rec in self:
-    #         if rec.return_date and rec.due_date:
-    #             if rec.return_date > rec.due_date:
-    #                 rec.late_days = (rec.return_date - rec.due_date).days
+    fine = fields.Integer(string='Fine',compute='_compute_fine_amount',store=True)
+    @api.depends('late_days')
+    def _compute_fine_amount(self):
+        for rec in self:
+            rec.fine = rec.late_days * 10
 
+    due_date = fields.Date(string='Due Date',compute='_compute_due_date',store=True)
+    @api.depends('issue_date')
+    def _compute_due_date(self):
+        for rec in self:
+            rec.due_date = rec.issue_date + timedelta(days=7)
+
+    late_days = fields.Integer(string='Late Days', compute='_compute_late_days',store=True)
+    @api.depends('due_date','return_date')
+    def _compute_late_days(self):
+        for rec in self:
+            if rec.return_date and rec.due_date:
+                if rec.return_date > rec.due_date:
+                    rec.late_days = (rec.return_date - rec.due_date).days
+
+    # write methos use
+    # def write(self, vals):
+    #     if 'issue_date' in vals:
+    #         raise ValidationError("issue date cannot change")
+    #     return super().create(vals)
+
+    @api.constrains('issue_date')
+    def _check_issue_date(self):
+            for rec in self:
+                if rec.issue_date != rec._origin.issue_date:
+                    raise ValidationError("issue date cannot change")
+
+    # def action_show_availble_book(self):
+    #     return {
+    #         'type': 'ir.actions.act_window',
+    #         'name':'library',
+    #         'res_model': 'library.book',
+    #         'view_mode': 'list',
+    #         'domain': [('available_qty', '>', 0)],
+    #     }
+    # def test_browse(self):
+    #     book = self.env['library.book'].browse(57)
+    #     print(book.name)
