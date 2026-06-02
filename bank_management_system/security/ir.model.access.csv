@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_customer_details,bank.customer.user,model_bank_customer,base.group_user,1,1,1,1
+access_account_details,bank.account.details.user,model_bank_account_details,base.group_user,1,1,1,1
+access_bank_transaction,bank.transaction.user,model_bank_transaction,base.group_user,1,1,1,1
+access_account_deposit,bank.deposit.user,model_bank_deposit,base.group_user,1,1,1,1
+access_account_withdraw,bank.withdraw.user,model_bank_withdraw,base.group_user,1,1,1,1

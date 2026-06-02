@@ -38,6 +38,19 @@
                         <field name="available_qty"/>
                         <field name="is_available"/>
                     </group>
+                    <notebook>
+                        <page string="issue book" >
+                            <field name="issue_ids" readonly="1">
+                                <list>
+                                    <field name="member_id"/>
+                                    <field name="day_issue"/>
+                                    <field name="issue_date"/>
+                                    <field name="return_date"/>
+                                    <field name="status"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

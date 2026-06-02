@@ -1,0 +1,16 @@
+<odoo>
+    <record id="account_statement_report" model="ir.actions.report">
+        <field name="binding_type">report</field>
+        <field name="name">transaction invoices</field>
+        <field name="model">bank.transaction</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">bank_management_system.report_account_statement_report</field>
+        <field name="report_file">bank_management_system.report_account_statement_report</field>
+        <field name="binding_model_id" ref="model_bank_transaction"/>
+        <field name="print_report_name">'Invoice - %s' %(object.transaction_number)</field>
+    </record>
+
+    <template id="report_account_statement_report">
+
+    </template>
+</odoo>

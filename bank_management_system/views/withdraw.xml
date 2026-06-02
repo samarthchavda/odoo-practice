@@ -1,0 +1,48 @@
+<odoo>
+    <record id="amount_withdraw_list_view" model="ir.ui.view">
+        <field name="name">withdraw.details.list</field>
+        <field name="model">bank.withdraw</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="account_id"/>
+                <field name="date"/>
+                <field name="withdraw_amount"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="amount_withdraw_form_view" model="ir.ui.view">
+        <field name="name">withdraw.details.form</field>
+        <field name="model">bank.withdraw</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_withdraw"
+                            string="Withdraw"
+                            type="object"
+                            class="btn-primary"
+                            invisible="status == 'done'"
+                    />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="account_id"/>
+                        <field name="date"/>
+                        <field name="withdraw_amount" readonly="id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_withdraw" model="ir.actions.act_window">
+        <field name="name">withdraw amount</field>
+        <field name="res_model">bank.withdraw</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_root_withdraw_amount"
+              name="Withdraw"
+              parent="menu_bank_management"
+              action="action_withdraw"/>
+</odoo>

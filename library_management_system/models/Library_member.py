@@ -7,3 +7,9 @@ class library_member(models.Model):
     name = fields.Char(string="Name")
     email = fields.Char(string="Email")
     is_active = fields.Boolean(default=True)
+
+    issue_book_ids = fields.One2many(
+        'book.issue',
+        'member_id',
+        string='Issues',
+    )

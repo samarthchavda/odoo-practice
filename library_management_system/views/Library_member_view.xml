@@ -22,6 +22,19 @@
                         <field name="email"/>
                         <field name="is_active"/>
                     </group>
+                    <notebook>
+                        <page string="issue books">
+                            <field name="issue_book_ids" readonly="1">
+                                <list>
+                                    <field name="book_id"/>
+                                    <field name="issue_date"/>
+                                    <field name="return_date"/>
+                                    <field name="day_issue"/>
+                                    <field name="status"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

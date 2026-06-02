@@ -44,3 +44,9 @@ class Library_Book(models.Model):
     #             raise ValidationError("You cannot delete book")
     #
     #     return super().unlink()
+
+    issue_ids = fields.One2many(
+        'book.issue',
+        'book_id',
+        string='Issues',
+    )
