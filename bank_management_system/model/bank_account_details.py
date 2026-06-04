@@ -3,7 +3,7 @@ from odoo import api,fields,models
 class Bank_account_details(models.Model):
     _name = 'bank.account.details'
     _description = 'Bank Account Details'
-    _rec_name = 'account_number'
+    _rec_name = 'customer_id'
 
     customer_id = fields.Many2one(
         'bank.customer',

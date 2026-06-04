@@ -33,15 +33,4 @@ class Withdraw(models.Model):
             rec.account_id.balance -= rec.withdraw_amount
             rec.status = 'done'
 
-        return {
-            'type': 'ir.actions.client',
-            'tag': 'display_notification',
-            'params': {
-                'title': 'Success',
-                'message': 'Amount withdrawn successfully',
-                'type': 'success',
-                'sticky': False,
-            }
-        }
-
 

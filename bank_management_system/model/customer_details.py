@@ -3,6 +3,7 @@ from odoo import fields, models, api
 class CustomerDetails(models.Model):
     _name = 'bank.customer'
     _description = 'Customer Details'
+    _rec_name = 'name'
 
     name = fields.Char(string="Customer Name",required=True)
     phone = fields.Char(string="Phone Number")

@@ -56,6 +56,9 @@ class LoanApplication(models.Model):
         string='Installments'
     )
 
+    def _get_monthly_emi(self):
+        pass
+
     def action_approved(self):
         pass
 

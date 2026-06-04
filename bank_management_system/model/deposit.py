@@ -23,13 +23,3 @@ class BankDeposit(models.Model):
 
             rec.account_id.balance += rec.deposit_amount
             rec.status = 'done'
-
-            return {
-                'type': 'ir.actions.client',
-                'tag': 'display_notification',
-                'params': {
-                    'title': 'Success',
-                    'message': 'Amount deposited successfully',
-                    'type': 'success',
-                }
-            }
