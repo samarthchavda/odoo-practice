@@ -1,0 +1,78 @@
+<odoo>
+    <record id="loan_application_list" model="ir.ui.view">
+        <field name="name">loan.application.list</field>
+        <field name="model">loan.application</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="loan_number"/>
+                <field name="customer_id"/>
+                <field name="loan_amount"/>
+                <field name="interest_rate"/>
+                <field name="duration"/>
+                <field name="status"/>
+                <field name="monthly_emi"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="loan_application_form" model="ir.ui.view">
+        <field name="name">loan.application.form</field>
+        <field name="model">loan.application</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+
+                    <button name="action_approved"
+                            type="object"
+                            string="Approve"
+                            class="btn-primary"
+                            invisible="status != 'draft'"/>
+
+                    <button name="action_reject"
+                            type="object"
+                            string="Reject"
+                            class="btn-danger"
+                            invisible="status != 'draft'"/>
+
+                    <button name="action_close"
+                            type="object"
+                            string="Close"
+                            class="btn-success"
+                            invisible="status != 'approved'"/>
+
+                    <button name="action_pay_all"
+                            type="object"
+                            string="Pay All EMI"
+                            class="btn-success"
+                            invisible="status != 'approved'"/>
+
+                    <field name="status"
+                           widget="statusbar"/>
+
+                </header>
+                <sheet>
+                    <group>
+                        <field name="loan_number"/>
+                        <field name="customer_id"/>
+                        <field name="loan_amount"/>
+                        <field name="interest_rate"/>
+                        <field name="duration"/>
+                        <field name="status"/>
+                        <field name="monthly_emi"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_loan_application" model="ir.actions.act_window">
+        <field name="name">loan application</field>
+        <field name="res_model">loan.application</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_root_loan_application"
+              name="Loan Application"
+              parent="menu_bank_management"
+              action="action_loan_application"/>
+</odoo>

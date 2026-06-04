@@ -31,6 +31,5 @@ class BankDeposit(models.Model):
                     'title': 'Success',
                     'message': 'Amount deposited successfully',
                     'type': 'success',
-                    'sticky': False,
                 }
             }

@@ -1,1 +1,1 @@
-from . import customer_details,bank_account_details,transaction,deposit,withdraw
+from . import customer_details,bank_account_details,transaction,deposit,withdraw,loan_application,loan_installment,loan_payment_history

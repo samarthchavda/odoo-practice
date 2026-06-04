@@ -1,6 +1,5 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
-from odoo.orm.decorators import readonly
 
 
 class BankTransaction(models.Model):
@@ -13,6 +12,15 @@ class BankTransaction(models.Model):
         copy=False,
         default='New',
     )
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get('transaction_number', 'New') == 'New':
+                vals['transaction_number'] = self.env['ir.sequence'].next_by_code('bank.transaction.sequence') or 'New'
+
+        return super().create(vals_list)
+
     from_account_id = fields.Many2one(
         'bank.account.details',
         string='Sender Account',
@@ -38,15 +46,6 @@ class BankTransaction(models.Model):
         ('done', 'Done')
     ], default='draft')
 
-    @api.model_create_multi
-    def create(self, vals_list):
-        for vals in vals_list:
-            if vals.get('transaction_number', 'New') == 'New':
-                vals['transaction_number'] = self.env['ir.sequence'].next_by_code(
-                    'bank.transaction.sequence'
-                ) or 'New'
-
-        return super().create(vals_list)
 
     def action_transfer(self):
         for rec in self:

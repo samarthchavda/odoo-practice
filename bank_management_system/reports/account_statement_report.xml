@@ -11,6 +11,69 @@
     </record>
 
     <template id="report_account_statement_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc"> <!-- for loop like doc in docs -->
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center">
+                            Transaction Invoice
+                        </h2>
+                        <h4>
+                            <t t-if="doc.state == 'draft'">
+                                <span style="color:orange;">
+                                    Status : Draft
+                                </span>
+                            </t>
+
+                            <t t-else="">
+                                <span style="color:green;">
+                                    Status : Done
+                                </span>
+                            </t>
+                        </h4>
+                        <br/>
+
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Transaction No</th>
+                                <td>
+                                    <span t-field="doc.transaction_number"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>date</th>
+                                <td>
+                                    <span t-field="doc.date"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>From account</th>
+                                <td>
+                                    <span t-field="doc.from_account_id"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>To account</th>
+                                <td>
+                                    <span t-field="doc.to_account_id"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>amount</th>
+                                <td>
+                                    <span t-field="doc.amount"/>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
 
     </template>
 </odoo>

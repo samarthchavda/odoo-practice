@@ -15,5 +15,14 @@
             <field name="prefix">TRN</field>
             <field name="padding">5</field>
         </record>
+
+        <record id="loan_application_number" model="ir.sequence">
+            <field name="name">loan application number</field>
+            <field name="code">loan.application.sequence</field>
+            <field name="prefix">LOAN</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
     </data>
 </odoo>

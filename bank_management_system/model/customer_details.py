@@ -4,7 +4,7 @@ class CustomerDetails(models.Model):
     _name = 'bank.customer'
     _description = 'Customer Details'
 
-    name = fields.Char(string="Customer Name",requried=True)
+    name = fields.Char(string="Customer Name",required=True)
     phone = fields.Char(string="Phone Number")
     email = fields.Char(string="Email Address")
     address = fields.Char(string="Address")
