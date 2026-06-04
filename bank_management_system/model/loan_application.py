@@ -49,3 +49,21 @@ class LoanApplication(models.Model):
         store=True,
         readonly=True
     )
+
+    installment_ids = fields.One2many(
+        'loan.installment',
+        'loan_id',
+        string='Installments'
+    )
+
+    def action_approved(self):
+        pass
+
+    def action_reject(self):
+        pass
+
+    def action_close(self):
+        pass
+
+    def action_pay_all(self):
+        pass

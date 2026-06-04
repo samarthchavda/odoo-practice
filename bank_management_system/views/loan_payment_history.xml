@@ -10,8 +10,6 @@
                 <field name="customer_id"/>
                 <field name="loan_amount"/>
                 <field name="monthly_emi"/>
-                <field name="paid_installments"/>
-                <field name="remaining_installments"/>
                 <field name="status"/>
             </list>
         </field>
@@ -35,8 +33,6 @@
                         <group>
                             <field name="duration" readonly="1"/>
                             <field name="monthly_emi" readonly="1"/>
-                            <field name="paid_installments" readonly="1"/>
-                            <field name="remaining_installments" readonly="1"/>
                             <field name="status" readonly="1"/>
                         </group>
                     </group>
