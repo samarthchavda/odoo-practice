@@ -9,6 +9,7 @@
     'data': [
         'security/group.xml',
         'security/ir.model.access.csv',
+        'data/stud.master.new.csv',
         'views/views.xml',
         ],
     'installable': True,

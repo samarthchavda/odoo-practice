@@ -6,7 +6,7 @@ access_account_deposit,bank.deposit.user,model_bank_deposit,group_manager,1,0,0,
 access_account_withdraw,bank.withdraw.user,model_bank_withdraw,group_manager,1,0,0,0
 access_loan_application,loan.application.user,model_loan_application,group_manager,1,0,0,0
 access_loan_installment,loan.installment.user,model_loan_installment,group_manager,1,0,0,0
-access_loan_payment_history,loan.payment.history.user,model_loan_payment_history,group_manager,1,0,0,0
+access_loan_payment_history,loan.payment.history.user,model_loan_history,group_manager,1,0,0,0
 
 access_loan_customer_details,bank.customer.user,model_bank_customer,group_loan_manager,1,1,1,1
 access_loan_account_details,bank.account.details.user,model_bank_account_details,group_loan_manager,1,1,1,1
@@ -15,7 +15,7 @@ access_loan_account_deposit,bank.deposit.user,model_bank_deposit,group_loan_mana
 access_loan_account_withdraw,bank.withdraw.user,model_bank_withdraw,group_loan_manager,1,0,0,0
 access_loan_loan_application,loan.application.user,model_loan_application,group_loan_manager,1,1,1,1
 access_loan_loan_installment,loan.installment.user,model_loan_installment,group_loan_manager,1,0,0,0
-access_loan_loan_payment_history,loan.payment.history.user,model_loan_payment_history,group_loan_manager,1,0,0,0
+access_loan_loan_payment_history,loan.payment.history.user,model_loan_history,group_loan_manager,1,0,0,0
 
 access_cashier_customer_cashier_details,bank.customer.user,model_bank_customer,group_cashier,1,0,0,0
 access_cashier_account_cashier_details,bank.account.details.user,model_bank_account_details,group_cashier,1,0,0,0
@@ -24,9 +24,9 @@ access_cashier_account_cashier_deposit,bank.deposit.user,model_bank_deposit,grou
 access_cashier_account_cashier_withdraw,bank.withdraw.user,model_bank_withdraw,group_cashier,1,1,1,1
 access_cashier_loan_application,loan.application.user,model_loan_application,group_cashier,1,0,0,0
 access_cashier_loan_installment,loan.installment.user,model_loan_installment,group_cashier,1,1,1,1
-access_cashier_loan_payment_history,loan.payment.history.user,model_loan_payment_history,group_cashier,1,0,0,0
+access_cashier_loan_payment_history,loan.payment.history.user,model_loan_history,group_cashier,1,0,0,0
 
 access_customer_login_transaction,bank.transaction.user,model_bank_transaction,group_customer,1,0,0,0
 access_customer_loan_application,loan.application.user,model_loan_application,group_customer,1,0,0,0
 access_customer_loan_installment,loan.installment.user,model_loan_installment,group_customer,1,0,0,0
-access_customer_loan_history_payment,loan.payment.history.user,model_loan_payment_history,group_customer,1,0,0,0
+access_customer_loan_history_payment,loan.payment.history.user,model_loan_history,group_customer,1,0,0,0

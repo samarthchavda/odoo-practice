@@ -1,35 +1,40 @@
 from odoo import models, fields
 
-class LoanPaymentHistory(models.Model):
-    _name = 'loan.payment.history'
+class LoanHistory(models.Model):
+    _name = 'loan.history'
     _description = 'Loan Payment History'
+    _order = 'payment_date desc'
 
     loan_id = fields.Many2one(
         'loan.application',
-        string='Loan'
+        string='Loan',
+        required=True
     )
 
-    loan_installment_id = fields.Many2one(
-        'loan.installment',
-        string='Installment'
+    customer_id = fields.Many2one(
+        'bank.customer',
+        string='Customer',
+        required=True
     )
 
     loan_number = fields.Char(
-        related='loan_id.loan_number',
-        store=True
+        string='Loan Number',
+        required=True
     )
 
-    amount = fields.Float(
-        related='loan_installment_id.amount',
-        store=True
+    installment_no = fields.Integer(
+        string='Installment No'
     )
 
     installment_date = fields.Date(
-        related='loan_installment_id.installment_date',
-        store=True
+        string='Installment Date'
     )
 
-    status = fields.Selection(
-        related='loan_installment_id.status',
-        store=True
+    payment_date = fields.Date(
+        string='Payment Date',
+        default=fields.Date.today
+    )
+
+    amount = fields.Float(
+        string='Amount Paid'
     )
