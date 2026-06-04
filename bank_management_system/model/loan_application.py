@@ -6,6 +6,7 @@ from odoo.exceptions import ValidationError
 class LoanApplication(models.Model):
     _name = 'loan.application'
     _description = 'Loan Application'
+    _rec_name = 'customer_id'
 
     loan_number = fields.Char(string='Loan Number',required=True,readonly=True,copy=False,default='loan')
 
@@ -55,18 +56,21 @@ class LoanApplication(models.Model):
         'loan_id',
         string='Installments'
     )
-
+    @api.depends('duration','loan_amount')
     def _get_monthly_emi(self):
-        pass
+        for rec in self:
+            month = rec.duration * 12
+            if rec.loan_amount and rec.duration:
+                rec.monthly_emi = rec.loan_amount / month
 
     def action_approved(self):
-        pass
+        self.status = 'approved'
 
     def action_reject(self):
-        pass
+        self.status = 'rejected'
 
     def action_close(self):
-        pass
+        self.status = 'closed'
 
     def action_pay_all(self):
         pass

@@ -30,7 +30,12 @@ class Withdraw(models.Model):
             if rec.account_id.balance < rec.withdraw_amount:
                 raise ValidationError("Insufficient balance")
 
-            rec.account_id.balance -= rec.withdraw_amount
+
+            rec.account_id.write({
+                'balance': rec.account_id.balance - rec.withdraw_amount
+            })
             rec.status = 'done'
+                # rec.account_id.balance -= rec.withdraw_amount
+                # rec.status = 'done'
 
 

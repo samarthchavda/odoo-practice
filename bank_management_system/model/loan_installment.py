@@ -14,17 +14,20 @@ class LoanInstallment(models.Model):
         related='loan_id.monthly_emi',
         string='EMI Amount',
         store=True,
+        readonly=True,
     )
 
     installment_date = fields.Date(
         string='Installment Date',
-        required=True
+        required=True,
+        default=fields.Date.today(),
+        readonly=True,
     )
 
     status = fields.Selection([
         ('paid', 'Paid'),
         ('unpaid', 'Unpaid'),
-    ], default='unpaid')
+    ], default='unpaid',readonly=True)
 
     def action_pay(self):
-        pass
+        self.status = 'paid'

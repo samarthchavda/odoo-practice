@@ -23,3 +23,4 @@ class BankDeposit(models.Model):
 
             rec.account_id.balance += rec.deposit_amount
             rec.status = 'done'
+

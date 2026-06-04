@@ -40,4 +40,3 @@ class Bank_account_details(models.Model):
         'account_id',
         string='Withdraws',
     )
-

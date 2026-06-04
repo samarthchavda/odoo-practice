@@ -6,6 +6,7 @@
             <list>
                 <field name="account_id"/>
                 <field name="date"/>
+                <field name="status"/>
                 <field name="withdraw_amount"/>
             </list>
         </field>
@@ -28,6 +29,7 @@
                     <group>
                         <field name="account_id"/>
                         <field name="date"/>
+                        <field name="status"/>
                         <field name="withdraw_amount" readonly="id"/>
                     </group>
                 </sheet>
