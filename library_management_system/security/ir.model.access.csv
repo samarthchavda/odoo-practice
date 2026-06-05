@@ -1,11 +1,10 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
-access_library_member_librarian,library.member.librarian,model_library_member,group_library_librarian,1,1,1,1
 access_library_book_librarian,library.book.librarian,model_library_book,group_library_librarian,1,1,1,1
+access_library_member_librarian,library.member.librarian,model_library_member,group_library_librarian,1,1,1,1
 access_book_issue_librarian,book.issue.librarian,model_book_issue,group_library_librarian,1,1,1,1
 access_book_author_librarian,book.author.librarian,model_book_author,group_library_librarian,1,1,1,1
+access_library_book_member,library.book.member,model_library_book,group_library_member,1,0,0,0
+access_book_issue_member,book.issue.member,model_book_issue,group_library_member,1,0,0,0
+access_library_member_member,library.member.member,model_library_member,group_library_member,1,0,0,0
 
-access_library_member_member,library.member.member,model_library_member,group_library_memeber,1,0,0,0
-access_library_book_member,library.book.member,model_library_book,group_library_memeber,1,0,0,0
-access_book_issue_member,book.issue.member,model_book_issue,group_library_memeber,1,1,1,0
-access_book_author_member,book.author.member,model_book_author,group_library_memeber,1,0,0,0

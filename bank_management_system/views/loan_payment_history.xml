@@ -28,7 +28,6 @@
                         <field name="installment_date"/>
                         <field name="payment_date"/>
                         <field name="amount"/>
-                        <field name="paid_by"/>
                     </group>
                 </sheet>
             </form>
@@ -43,7 +42,7 @@
 
     <menuitem id="menu_loan_history"
               name="Loan History"
-              parent="menu_bank_management"
+              parent="menu_loan_root"
               action="action_loan_history"/>
 
 </odoo>

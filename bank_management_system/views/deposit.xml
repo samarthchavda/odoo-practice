@@ -43,6 +43,6 @@
 
     <menuitem id="menu_root_deposit_amount"
               name="Deposit"
-              parent="menu_bank_management"
+              parent="transaction_menu_root"
               action="action_deposit"/>
 </odoo>

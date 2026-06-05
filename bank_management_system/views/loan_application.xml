@@ -71,8 +71,14 @@
         <field name="view_mode">list,form</field>
     </record>
 
+    <menuitem id="menu_loan_root"
+              name="Loan"
+              parent="menu_bank_management"
+              sequence="30"
+    />
+
     <menuitem id="menu_root_loan_application"
               name="Loan Application"
-              parent="menu_bank_management"
+              parent="menu_loan_root"
               action="action_loan_application"/>
 </odoo>

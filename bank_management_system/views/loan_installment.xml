@@ -51,7 +51,7 @@
 
     <menuitem id="menu_root_loan_installment"
               name="Loan Installment"
-              parent="menu_bank_management"
+              parent="menu_loan_root"
               action="action_loan_installment"/>
 
 </odoo>

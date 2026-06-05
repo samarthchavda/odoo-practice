@@ -43,7 +43,7 @@
 
     <menuitem id="menu_bank_management"
           name="Bank Management"
-          sequence="1"/>
+          sequence="10"/>
 
     <menuitem id="menu_root_customer"
               name="Customers"

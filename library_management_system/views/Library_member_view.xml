@@ -4,6 +4,7 @@
         <field name="model">library.member</field>
         <field name="arch" type="xml">
             <list>
+                <field name="user_id"/>
                 <field name="name"/>
                 <field name="email"/>
                 <field name="is_active"/>
@@ -18,6 +19,7 @@
             <form>
                 <sheet>
                     <group>
+                        <field name="user_id"/>
                         <field name="name"/>
                         <field name="email"/>
                         <field name="is_active"/>

@@ -39,10 +39,10 @@ class Book_issue(models.Model):
     #     if self.issue_date:
     #         self.status = 'issue'
 
-    @api.constrains('issue_date')
-    def _check_issue_book(self):
-        if self.issue_date:
-            self.status = 'issue'
+    # @api.constrains('issue_date')
+    # def _check_issue_book(self):
+    #     if self.issue_date:
+    #         self.status = 'issue'
 
     @api.constrains('return_date')
     def _check_return_book(self):
@@ -60,35 +60,16 @@ class Book_issue(models.Model):
     #             book.book_id.available_qty += 1
 
     def action_issue_book(self):
-        if self.status == 'issue':
-            self.book_id.available_qty -= 1
+        for rec in self:
+            rec.book_id.available_qty -= 1
+            rec.status = 'issue'
 
-        return {
-            'type': 'ir.actions.client',
-            'tag': 'display_notification',
-            'params': {
-                'title': 'Success',
-                'message': 'Book issue successfully',
-                'type': 'success',
-                'sticky': False,
-            }
-        }
 
     def action_return_book(self):
-        if not self.status == 'return':
-            self.book_id.available_qty += 1
-            self.return_date = fields.Date.today()
-        self.status = 'return'
-        return {
-            'type': 'ir.actions.client',
-            'tag': 'display_notification',
-            'params': {
-                'title': 'Success',
-                'message': 'Book return successfully',
-                'type': 'success',
-                'sticky': False,
-            }
-        }
+        for rec in self:
+            rec.book_id.available_qty += 1
+            rec.status = 'return'
+
     # penalty logic
     # fine = late_days * 10
     # due_date = issue.date + timedelta(days=7).days

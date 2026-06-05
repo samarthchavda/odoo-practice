@@ -45,6 +45,6 @@
 
     <menuitem id="menu_root_withdraw_amount"
               name="Withdraw"
-              parent="menu_bank_management"
+              parent="transaction_menu_root"
               action="action_withdraw"/>
 </odoo>
