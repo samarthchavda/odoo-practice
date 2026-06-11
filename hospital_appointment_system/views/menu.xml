@@ -1,0 +1,20 @@
+<odoo>
+    <menuitem name="Hospital Appointment System"
+              id="main_root_hospital"/>
+
+    <menuitem id="menu_root_appointment_hospital"
+              name="Appointment"
+              parent="main_root_hospital"
+              action="action_appointment_details"/>
+
+     <menuitem id="menu_root_doctor_hospital"
+              name="Doctor"
+              parent="main_root_hospital"
+              action="action_doctor_details"/>
+
+    <menuitem id="menu_root_patient_hospital"
+              name="Patient"
+              parent="main_root_hospital"
+              action="action_patient_details"/>
+
+</odoo>

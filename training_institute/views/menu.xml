@@ -1,0 +1,20 @@
+<odoo>
+    <menuitem id="main_root_menu"
+              name="Training Institute System"
+              sequence="30"
+              />
+    <menuitem id="main_root_course_menu"
+              name="courses"
+              parent="main_root_menu"
+              action="action_course_details"/>
+
+    <menuitem id="main_root_batch_menu"
+              name="Batch"
+              parent="main_root_menu"
+              action="action_batch_details"/>
+
+    <menuitem id="main_root_student_menu"
+              name="Student"
+              parent="main_root_menu"
+              action="action_student_details"/>
+</odoo>

@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_doctor_admin,doctor_admin,model_hospital_doctor,group_hospital_admin,1,1,1,1
+access_patient_admin,patient_admin,model_hospital_patient,group_hospital_admin,1,1,1,1
+access_appointment_admin,appointment_admin,model_hospital_appointment,group_hospital_admin,1,1,1,1
+
+access_doctor_receptionist,doctor_receptionist,model_hospital_doctor,group_receptionist,1,0,0,0
+access_patient_receptionist,patient_receptionist,model_hospital_patient,group_receptionist,1,1,1,1
+access_appointment_receptionist,appointment_receptionist,model_hospital_appointment,group_receptionist,1,1,1,1

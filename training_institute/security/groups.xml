@@ -1,0 +1,12 @@
+<odoo>
+    <record id="group_training_staff" model="res.groups">
+        <field name="name">Training Staff</field>
+    </record>
+
+    <record id="group_training_manager" model="res.groups">
+        <field name="name">Training Manager</field>
+        <field name="implied_ids" eval="[(4, ref('group_training_staff'))]"/>
+    </record>
+
+    
+</odoo>

@@ -1,0 +1,39 @@
+<odoo>
+    <record id="doctor_details_list_view" model="ir.ui.view">
+        <field name="name">doctor.details.list</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="specialization"/>
+                <field name="experience_years"/>
+                <field name="is_available"/>
+                <field name="appointment_ids"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="doctor_details_form_view" model="ir.ui.view">
+        <field name="name">doctor.details.from</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="specialization"/>
+                        <field name="experience_years"/>
+                        <field name="is_available"/>
+                        <field name="appointment_ids" readonly="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_doctor_details" model="ir.actions.act_window">
+        <field name="name">Hospital doctor</field>
+        <field name="res_model">hospital.doctor</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
