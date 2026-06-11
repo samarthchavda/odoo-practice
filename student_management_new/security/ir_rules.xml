@@ -1,3 +1,14 @@
 <odoo>
-
+    <record id="stud_master_own_records_rule" model="ir.rule">
+        <field name="name">Student Own Records Only</field>
+        <field name="model_id" ref="model_stud_master_new"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_student_receptionist'))]"/>
+    </record>
+    <record id="stud_result_own_record_rule" model="ir.rule">
+        <field name="name">student own result record</field>
+        <field name="model_id" ref="model_stud_result_new"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_student_receptionist'))]"/>
+    </record>
 </odoo>

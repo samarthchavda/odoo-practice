@@ -13,12 +13,23 @@
         <field name="name">see only library member </field>
         <field name="model_id" ref="model_library_member"/>
         <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups"
+           eval="[(4, ref('group_library_member'))]"/>
     </record>
 
-    <record id="ir_rule_library_manager" model="ir.rule">
+    <record id="ir_rule_library_member_issue_book" model="ir.rule">
         <field name="name">own issue book</field>
         <field name="model_id" ref="model_book_issue"/>
         <field name="domain_force">[('member_id.user_id', '=', user.id)]</field>
+        <field name="groups"
+           eval="[(4, ref('group_library_member'))]"/>
+    </record>
+
+    <record id="ir_rule_library_manager" model="ir.rule">
+        <field name="name">manager see own issue book</field>
+        <field name="model_id" ref="model_book_issue"/>
+        <field name="domain_force">[('create_uid','=',user.id)]</field>
+<!--        <field name="groups" eval="[(4, ref('group_library_librarian'))]"/>-->
     </record>
 
 </odoo>

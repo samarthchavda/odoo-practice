@@ -2,7 +2,7 @@
     'name': 'Bank Management System',
     'description': "Bank Management System",
     'version': '1.0',
-    'depends': ['base'],
+    'depends': ['base',],
     'data': [
         'security/groups.xml',
         'security/ir.model.access.csv',
@@ -16,6 +16,7 @@
         'views/loan_application.xml',
         'views/loan_installment.xml',
         'views/loan_payment_history.xml',
+        'reports/account_statement_report.xml',
     ],
     'application': True,
     'installable': True,

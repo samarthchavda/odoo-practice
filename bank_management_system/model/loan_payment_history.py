@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields,api
 
 class LoanHistory(models.Model):
     _name = 'loan.history'
@@ -22,13 +22,21 @@ class LoanHistory(models.Model):
         required=True
     )
 
-    installment_no = fields.Integer(
-        string='Installment No'
+    installment_no = fields.Char(
+        string='Installment No',
+        required=True,
+        readonly=True,
+        copy=False,
+        default='New'
     )
 
-    installment_date = fields.Date(
-        string='Installment Date'
-    )
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if not vals.get('installment_no') or vals.get('installment_no') == 'New':
+                vals['installment_no'] =self.env['ir.sequence'].next_by_code('loan.history.sequence')
+
+        return super().create(vals_list)
 
     payment_date = fields.Date(
         string='Payment Date',

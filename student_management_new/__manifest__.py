@@ -6,6 +6,7 @@
     'data': [
         'security/group.xml',
         'security/ir.model.access.csv',
+        'security/ir_rules.xml',
         'data/stud.master.new.csv',
         'views/views.xml',
         ],

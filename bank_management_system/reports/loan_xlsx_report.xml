@@ -1,0 +1,13 @@
+<odoo>
+
+    <record id="action_loan_xlsx_report" model="ir.actions.report">
+        <field name="name">Loan XLSX Report</field>
+        <field name="model">loan.application</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">loan.xlsx</field>
+        <field name="report_file">loan.xlsx</field>
+        <field name="binding_model_id" ref="model_loan_application"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

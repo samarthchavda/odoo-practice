@@ -56,15 +56,34 @@ class LoanApplication(models.Model):
         'loan_id',
         string='Installments'
     )
-    @api.depends('duration','loan_amount')
+
+    @api.depends('loan_amount', 'interest_rate', 'duration')
     def _get_monthly_emi(self):
         for rec in self:
-            month = rec.duration * 12
-            if rec.loan_amount and rec.duration:
-                rec.monthly_emi = rec.loan_amount / month
+
+            if not rec.loan_amount or not rec.duration:
+                rec.monthly_emi = 0
+                continue
+
+            monthly_rate = rec.interest_rate / 12 / 100
+            months = rec.duration * 12
+
+            if monthly_rate == 0:
+                rec.monthly_emi = rec.loan_amount / months
+            else:
+                rec.monthly_emi = (rec.loan_amount * monthly_rate * ((1 + monthly_rate) ** months)) / (
+                        ((1 + monthly_rate) ** months) - 1)
+
 
     def action_approved(self):
         self.status = 'approved'
+
+        month = self.duration * 12
+        for i in range(month):
+            self.env['loan.installment'].create({
+                'loan_id' : self.id,
+                'installment_date' : fields.Date.today() + relativedelta(months=i + 1),
+            })
 
     def action_reject(self):
         self.status = 'rejected'
@@ -73,4 +92,15 @@ class LoanApplication(models.Model):
         self.status = 'closed'
 
     def action_pay_all(self):
-        pass
+        # self.installment_ids.write({
+        #     'status': 'paid',
+        # })
+        #
+        # self.status = 'closed'
+
+        for emi in self.installment_ids.filtered(
+            lambda x : x.status == 'unpaid'
+        ):
+            emi.action_pay()
+
+        self.status = 'closed'

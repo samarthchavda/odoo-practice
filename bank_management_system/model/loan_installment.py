@@ -33,12 +33,11 @@ class LoanInstallment(models.Model):
 
     def action_pay(self):
         for rec in self:
-            rec.status = 'paid'
 
             rec.env['loan.history'].create({
                 'loan_id': rec.loan_id.id,
                 'customer_id': rec.loan_id.customer_id.id,
                 'loan_number': rec.loan_id.loan_number,
-                'installment_date': rec.installment_date,
                 'amount': rec.amount,
             })
+            rec.status = 'paid'

@@ -6,4 +6,8 @@
     <record id="group_student_receptionist" model="res.groups">
         <field name="name">student receptionist</field>
     </record>
+
+    <record id="groups_student_details" model="res.groups">
+        <field name="name">Student </field>
+    </record>
 </odoo>

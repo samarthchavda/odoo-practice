@@ -4,7 +4,7 @@ from odoo.exceptions import ValidationError
 
 class Studentmaster(models.Model):
     _name = 'stud.master.new'
-    
+
     name = fields.Char("Name")
     phone_no = fields.Char("Phone")
     birth_date = fields.Date("Birth Date")

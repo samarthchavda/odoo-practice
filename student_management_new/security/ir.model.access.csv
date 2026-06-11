@@ -4,6 +4,9 @@ access_student_result_admin,stud.result.new.user,model_stud_result_new,group_stu
 access_student_sports_admin,sports.act.user,model_sports_act,group_student_admin,1,1,1,1
 
 
-access_student_master_receptionist,stud.master.new.user,model_stud_master_new,group_student_receptionist,1,0,0,0
+access_student_master_receptionist,stud.master.new.user,model_stud_master_new,group_student_receptionist,1,1,1,1
 access_student_result_receptionist,stud.result.new.user,model_stud_result_new,group_student_receptionist,1,1,1,1
 access_student_sports_receptionist,sports.act.user,model_sports_act,group_student_receptionist,1,0,0,0
+
+access_student_result_details,stud.result.new.user,model_stud_result_new,groups_student_details,1,0,0,0
+access_student_sports_details,sports.act.user,model_sports_act,groups_student_details,1,0,0,0

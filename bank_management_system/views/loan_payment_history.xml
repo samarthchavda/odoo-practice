@@ -25,7 +25,7 @@
                         <field name="loan_number"/>
                         <field name="customer_id"/>
                         <field name="installment_no"/>
-                        <field name="installment_date"/>
+<!--                        <field name="installment_date"/>-->
                         <field name="payment_date"/>
                         <field name="amount"/>
                     </group>
