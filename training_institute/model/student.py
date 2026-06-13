@@ -14,7 +14,7 @@ class Student(models.Model):
         ('other','Other')
     ],string='Gender')
 
-    course_ids = fields.Many2many(
+    course_id = fields.Many2one(
         'training.course',
         string='Courses',
     )

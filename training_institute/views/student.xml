@@ -9,7 +9,7 @@
                 <field name="phone"/>
                 <field name="age"/>
                 <field name="gender"/>
-                <field name="course_ids"/>
+                <field name="course_id"/>
                 <field name="batch_id"/>
             </list>
         </field>
@@ -27,8 +27,8 @@
                         <field name="phone"/>
                         <field name="age"/>
                         <field name="gender"/>
-                        <field name="course_ids"/>
-                        <field name="batch_id" domain="[('course_id', 'in', 'course_ids')]"/>
+                        <field name="course_id"/>
+                        <field name="batch_id" domain="[('course_id','=',course_id)]"/>
                     </group>
                 </sheet>
             </form>

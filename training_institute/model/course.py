@@ -19,6 +19,8 @@ class Course(models.Model):
         'course_id'
     )
 
-    student_ids = fields.Many2many(
-        'training.student'
+    student_ids = fields.One2many(
+        'training.student',
+        'course_id',
+        string='Students'
     )
